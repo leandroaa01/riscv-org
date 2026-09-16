@@ -1,0 +1,8 @@
+Arquivos do processador estão em RV32I-main\single_cycle_processor
+Arquivo de teste em RV32I-main\tb (top.sv)
+Adicionar todos os *.sv ao projeto
+Compilar ALL
+Simulate: 
+vsim work.top
+add wave -r /*
+run -all
