@@ -36,6 +36,7 @@ typedef enum logic [ALU_SEL_LEN-1:0] {
     OP_SRL,
     OP_SRA,
     OP_MUL,
+    OP_MAX,
     OP_UNKNOWN
 } alu_select_e;
 

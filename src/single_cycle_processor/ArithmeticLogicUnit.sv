@@ -32,7 +32,9 @@ module ArithmeticLogicUnit #(parameter XLEN = 32, parameter REG_ADDR_WIDTH = 5)
             OP_SRL:     alu_o =         alu_port_a_i  >>  alu_port_b_i[REG_ADDR_WIDTH-1:0];
             OP_SRA:     alu_o = $signed(alu_port_a_i) >>> alu_port_b_i[REG_ADDR_WIDTH-1:0];
             OP_MUL:     alu_o =         alu_port_a_i  *   alu_port_b_i;
-        OP_UNKNOWN:     alu_o = {XLEN{1'b0}};
+            OP_MAX:     alu_o = ($signed(alu_port_a_i) > $signed(alu_port_b_i))
+                                ? alu_port_a_i : alu_port_b_i;
+            OP_UNKNOWN:     alu_o = {XLEN{1'b0}};
         endcase
     end
 

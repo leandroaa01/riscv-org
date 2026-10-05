@@ -107,7 +107,7 @@ module top
         instruction_count_target = 0;
         void'($value$plusargs("INSTRUCTION_COUNT=%d", instruction_count_target));
         if (!$value$plusargs("TEST=%s", test_name))
-            test_name = "mul_test";
+            test_name = "max_test";
         expected_file_name = {"expected/", test_name, "_expected.txt"};
         state_output_enabled = $value$plusargs("STATE_OUT=%s", state_file_name);
 
