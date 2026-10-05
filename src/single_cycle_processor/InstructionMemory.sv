@@ -19,7 +19,7 @@ module InstructionMemory
 
     initial
     begin
-        $readmemh("R_type.txt",instruction); // use the right txt file for testing
+        $readmemh("L_S_type.txt",instruction); // use the right txt file for testing
     end
 
     always_comb
