@@ -1,83 +1,18 @@
-# Loading project testes
-vsim work.top
-# vsim work.top 
-<<<<<<< HEAD
-# Start time: 11:47:31 on Oct 05,2026
-=======
-# Start time: 14:24:15 on Oct 05,2026
->>>>>>> feat-00/op-mult-test
-# Loading sv_std.std
-# Loading work.risc_v_32_i_pkg
-# Loading work.top_sv_unit
-# Loading work.top
-# Loading work.InstructionMemory
-# Loading work.ProcessorCore_sv_unit
-# Loading work.ProcessorCore
-# Loading work.RegisterFile
-# Loading work.ImmediateSignExtend_sv_unit
-# Loading work.ImmediateSignExtend
-# Loading work.CoreControlUnit_sv_unit
-# Loading work.CoreControlUnit
-# Loading work.ArithmeticLogicUnit_sv_unit
-# Loading work.ArithmeticLogicUnit
-# Loading work.ComparatorUnit_sv_unit
-# Loading work.ComparatorUnit
-# Loading work.LoadStoreUnit_sv_unit
-# Loading work.LoadAndStoreUnit
-# Loading work.DataMemory
-<<<<<<< HEAD
-=======
-add wave -position insertpoint  \
-sim:/top/write_data \
-sim:/top/data_address \
-sim:/top/write_enable \
-sim:/top/clk \
-sim:/top/reset \
-sim:/top/instruction_address \
-sim:/top/instruction_data \
-sim:/top/read_data \
-sim:/top/write_data_strobe \
-sim:/top/cycle_count \
-sim:/top/mismatch_count \
-sim:/top/completion_cycle \
-sim:/top/completion_detected \
-sim:/top/expectations_loaded \
-sim:/top/expected_registers \
-sim:/top/expected_memory \
-sim:/top/expected_register_valid \
-sim:/top/expected_memory_valid \
-sim:/top/expected_completion_address \
-sim:/top/expected_completion_write_data \
-sim:/top/expected_completion_valid \
-sim:/top/expected_file \
-sim:/top/parse_status \
-sim:/top/expected_index \
-sim:/top/expected_value \
-sim:/top/record_type \
-sim:/top/test_name \
-sim:/top/expected_file_name \
-sim:/top/state_file_name \
-sim:/top/state_output_enabled \
-sim:/top/retire_valid \
-sim:/top/retire_pc \
-sim:/top/retire_instruction \
-sim:/top/retire_reg_write \
-sim:/top/retire_rd \
-sim:/top/retire_rd_value \
-sim:/top/termination_mode \
-sim:/top/instruction_count_target \
-sim:/top/retire_count
->>>>>>> feat-00/op-mult-test
-run
-# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "expected/mul_test_expected.txt" for reading.
-# No such file or directory. (errno = ENOENT)    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(123)
-#    Time: 0 ps  Iteration: 0  Instance: /top
-# mul_test TEST: FAIL - unable to open expected/mul_test_expected.txt
-# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(127)
-#    Time: 0 ps  Iteration: 0  Instance: /top
-# 1
-<<<<<<< HEAD
-# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+# Project file /home/malva/Documentos/half/org/riscv-org/risv.mpf was not found.
+# Unable to open project.
+# Loading project riscv
+# Compile of ArithmeticLogicUnit.sv failed with 2 errors.
+# Compile of ComparatorUnit.sv failed with 2 errors.
+# Compile of CoreControlUnit.sv failed with 2 errors.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv failed with 2 errors.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv failed with 2 errors.
+# Compile of ProcessorCore.sv failed with 6 errors.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 6 failed with 16 errors.
 # Compile of ArithmeticLogicUnit.sv was successful.
 # Compile of ComparatorUnit.sv was successful.
 # Compile of CoreControlUnit.sv was successful.
@@ -91,10 +26,8 @@ run
 # Compile of top.sv was successful.
 # 11 compiles, 0 failed with no errors.
 vsim work.top
-# End time: 11:49:05 on Oct 05,2026, Elapsed time: 0:01:34
-# Errors: 0, Warnings: 2
 # vsim work.top 
-# Start time: 11:49:05 on Oct 05,2026
+# Start time: 14:55:37 on Oct 05,2026
 # Loading sv_std.std
 # Loading work.risc_v_32_i_pkg
 # Loading work.top_sv_unit
@@ -115,6 +48,159 @@ vsim work.top
 # Loading work.LoadAndStoreUnit
 # Loading work.DataMemory
 run
+# mul_test TEST: FAIL - timeout after 50 cycles
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
+#    Time: 510 ns  Iteration: 1  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199
+add wave -position insertpoint sim:/top/PrCore/*
+run
+# MISMATCH: x1 expected 00000006 actual 00000001
+# MISMATCH: x2 expected 00000007 actual 0000ffff
+# MISMATCH: x3 expected 0000002a actual ffffffff
+# MISMATCH: data[0] expected 0000002a actual 00000001
+# mul_test TEST: completion detected after 0 cycles
+# mul_test TEST: FAIL - 4 mismatches
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(245)
+#    Time: 516 ns  Iteration: 0  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+add wave -position insertpoint sim:/ArithmeticLogicUnit_sv_unit/*
+# ** UI-Msg: (vish-4014) No objects found matching '/ArithmeticLogicUnit_sv_unit/*'.
+# Compile of ArithmeticLogicUnit.sv was successful.
+# Compile of ComparatorUnit.sv was successful.
+# Compile of CoreControlUnit.sv was successful.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful.
+# Compile of ProcessorCore.sv was successful.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.risc_v_32_i_pkg
+# Loading work.top_sv_unit
+# Loading work.top
+# Loading work.InstructionMemory
+# Loading work.ProcessorCore_sv_unit
+# Loading work.ProcessorCore
+# Loading work.RegisterFile
+# Loading work.ImmediateSignExtend_sv_unit
+# Loading work.ImmediateSignExtend
+# Loading work.CoreControlUnit_sv_unit
+# Loading work.CoreControlUnit
+# Loading work.ArithmeticLogicUnit_sv_unit
+# Loading work.ArithmeticLogicUnit
+# Loading work.ComparatorUnit_sv_unit
+# Loading work.ComparatorUnit
+# Loading work.LoadStoreUnit_sv_unit
+# Loading work.LoadAndStoreUnit
+# Loading work.DataMemory
+run
+
+add wave -position insertpoint sim:/top/dmem/*
+run
+add wave -position insertpoint  \
+sim:/top/dmem/read_data_o \
+sim:/top/dmem/clk_i \
+sim:/top/dmem/write_enable_i \
+sim:/top/dmem/write_data_i \
+sim:/top/dmem/address_i \
+sim:/top/dmem/data
+add wave -position insertpoint sim:/ArithmeticLogicUnit_sv_unit/*
+# ** UI-Msg: (vish-4014) No objects found matching '/ArithmeticLogicUnit_sv_unit/*'.
+# Compile of ArithmeticLogicUnit.sv was successful.
+# Compile of ComparatorUnit.sv was successful.
+# Compile of CoreControlUnit.sv was successful.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful.
+# Compile of ProcessorCore.sv was successful.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 0 failed with no errors.
+vsim work.top +TEST=mul_test +IMEM=mul_test.txt
+# End time: 14:59:19 on Oct 05,2026, Elapsed time: 0:03:42
+# Errors: 0, Warnings: 2
+# vsim work.top "+TEST=mul_test" "+IMEM=mul_test.txt" 
+# Start time: 14:59:19 on Oct 05,2026
+# Loading sv_std.std
+# Loading work.risc_v_32_i_pkg
+# Loading work.top_sv_unit
+# Loading work.top
+# Loading work.InstructionMemory
+# Loading work.ProcessorCore_sv_unit
+# Loading work.ProcessorCore
+# Loading work.RegisterFile
+# Loading work.ImmediateSignExtend_sv_unit
+# Loading work.ImmediateSignExtend
+# Loading work.CoreControlUnit_sv_unit
+# Loading work.CoreControlUnit
+# Loading work.ArithmeticLogicUnit_sv_unit
+# Loading work.ArithmeticLogicUnit
+# Loading work.ComparatorUnit_sv_unit
+# Loading work.ComparatorUnit
+# Loading work.LoadStoreUnit_sv_unit
+# Loading work.LoadAndStoreUnit
+# Loading work.DataMemory
+run -all
+# mul_test TEST: FAIL - timeout after 50 cycles
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
+#    Time: 510 ns  Iteration: 1  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199
+add wave -position insertpoint sim:/top_sv_unit/*
+# ** UI-Msg: (vish-4014) No objects found matching '/top_sv_unit/*'.
+# Compile of ArithmeticLogicUnit.sv was successful.
+# Compile of ComparatorUnit.sv was successful.
+# Compile of CoreControlUnit.sv was successful.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful.
+# Compile of ProcessorCore.sv was successful.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 0 failed with no errors.
+vsim +TEST=mul_test +IMEM=mul_test.txt work.top
+# End time: 15:00:50 on Oct 05,2026, Elapsed time: 0:01:31
+# Errors: 0, Warnings: 2
+# vsim "+TEST=mul_test" "+IMEM=mul_test.txt" work.top 
+# Start time: 15:00:50 on Oct 05,2026
+# Loading sv_std.std
+# Loading work.risc_v_32_i_pkg
+# Loading work.top_sv_unit
+# Loading work.top
+# Loading work.InstructionMemory
+# Loading work.ProcessorCore_sv_unit
+# Loading work.ProcessorCore
+# Loading work.RegisterFile
+# Loading work.ImmediateSignExtend_sv_unit
+# Loading work.ImmediateSignExtend
+# Loading work.CoreControlUnit_sv_unit
+# Loading work.CoreControlUnit
+# Loading work.ArithmeticLogicUnit_sv_unit
+# Loading work.ArithmeticLogicUnit
+# Loading work.ComparatorUnit_sv_unit
+# Loading work.ComparatorUnit
+# Loading work.LoadStoreUnit_sv_unit
+# Loading work.LoadAndStoreUnit
+# Loading work.DataMemory
+run
+# mul_test TEST: FAIL - timeout after 50 cycles
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
+#    Time: 510 ns  Iteration: 1  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199
+add wave -position insertpoint sim:/ImmediateSignExtend_sv_unit/*
+# ** UI-Msg: (vish-4014) No objects found matching '/ImmediateSignExtend_sv_unit/*'.
+add wave -position insertpoint sim:/top/*
 add wave -position insertpoint  \
 sim:/top/write_data \
 sim:/top/data_address \
@@ -156,41 +242,185 @@ sim:/top/termination_mode \
 sim:/top/instruction_count_target \
 sim:/top/retire_count
 run
-# L_S_type TEST: completion detected after 18 cycles
-# L_S_type TEST: PASS
-# 1
-# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
-run
-restart
-run
-# L_S_type TEST: completion detected after 18 cycles
-# L_S_type TEST: PASS
-# 1
-# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
-restart
-run
-# MISMATCH: x1 expected ffffffff actual 00000001
-# MISMATCH: data[16] expected ffffffff actual 00000001
-# L_S_type TEST: completion detected after 18 cycles
-# L_S_type TEST: FAIL - 2 mismatches
+# MISMATCH: x1 expected 00000006 actual 00000001
+# MISMATCH: x2 expected 00000007 actual 0000ffff
+# MISMATCH: x3 expected 0000002a actual ffffffff
+# MISMATCH: data[0] expected 0000002a actual 00000001
+# mul_test TEST: completion detected after 0 cycles
+# mul_test TEST: FAIL - 4 mismatches
 # ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(245)
-#    Time: 197 ns  Iteration: 0  Instance: /top
+#    Time: 516 ns  Iteration: 0  Instance: /top
 # 1
 # Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+# Compile of ArithmeticLogicUnit.sv was successful.
+# Compile of ComparatorUnit.sv was successful.
+# Compile of CoreControlUnit.sv was successful.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful.
+# Compile of ProcessorCore.sv was successful.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 0 failed with no errors.
 restart
-run
-# L_S_type TEST: FAIL - timeout after 50 cycles
-=======
-# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 127
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.risc_v_32_i_pkg
+# Loading work.top_sv_unit
+# Loading work.top
+# Loading work.InstructionMemory
+# Loading work.ProcessorCore_sv_unit
+# Loading work.ProcessorCore
+# Loading work.RegisterFile
+# Loading work.ImmediateSignExtend_sv_unit
+# Loading work.ImmediateSignExtend
+# Loading work.CoreControlUnit_sv_unit
+# Loading work.CoreControlUnit
+# Loading work.ArithmeticLogicUnit_sv_unit
+# Loading work.ArithmeticLogicUnit
+# Loading work.ComparatorUnit_sv_unit
+# Loading work.ComparatorUnit
+# Loading work.LoadStoreUnit_sv_unit
+# Loading work.LoadAndStoreUnit
+# Loading work.DataMemory
 run
 # mul_test TEST: FAIL - timeout after 50 cycles
->>>>>>> feat-00/op-mult-test
 # ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
 #    Time: 510 ns  Iteration: 1  Instance: /top
 # 1
 # Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199
-<<<<<<< HEAD
-=======
-# End time: 14:25:01 on Oct 05,2026, Elapsed time: 0:00:46
-# Errors: 0, Warnings: 4
->>>>>>> feat-00/op-mult-test
+run
+# MISMATCH: x1 expected 00000006 actual 00000001
+# MISMATCH: x2 expected 00000007 actual 0000ffff
+# MISMATCH: x3 expected 0000002a actual ffffffff
+# MISMATCH: data[0] expected 0000002a actual 00000001
+# mul_test TEST: completion detected after 0 cycles
+# mul_test TEST: FAIL - 4 mismatches
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(245)
+#    Time: 516 ns  Iteration: 0  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+# Compile of top.sv was successful.
+vsim +TEST=mul_test +IMEM=mul_test.txt work.top
+# End time: 15:05:29 on Oct 05,2026, Elapsed time: 0:04:39
+# Errors: 0, Warnings: 2
+# vsim "+TEST=mul_test" "+IMEM=mul_test.txt" work.top 
+# Start time: 15:05:29 on Oct 05,2026
+# Loading sv_std.std
+# Loading work.risc_v_32_i_pkg
+# Loading work.top_sv_unit
+# Loading work.top
+# Loading work.InstructionMemory
+# Loading work.ProcessorCore_sv_unit
+# Loading work.ProcessorCore
+# Loading work.RegisterFile
+# Loading work.ImmediateSignExtend_sv_unit
+# Loading work.ImmediateSignExtend
+# Loading work.CoreControlUnit_sv_unit
+# Loading work.CoreControlUnit
+# Loading work.ArithmeticLogicUnit_sv_unit
+# Loading work.ArithmeticLogicUnit
+# Loading work.ComparatorUnit_sv_unit
+# Loading work.ComparatorUnit
+# Loading work.LoadStoreUnit_sv_unit
+# Loading work.LoadAndStoreUnit
+# Loading work.DataMemory
+add wave -position insertpoint sim:/top/*
+add watch \
+sim:/top/write_data \
+sim:/top/data_address \
+sim:/top/write_enable \
+sim:/top/clk \
+sim:/top/reset \
+sim:/top/instruction_address \
+sim:/top/instruction_data \
+sim:/top/read_data \
+sim:/top/write_data_strobe \
+sim:/top/cycle_count \
+sim:/top/mismatch_count \
+sim:/top/completion_cycle \
+sim:/top/completion_detected \
+sim:/top/expectations_loaded \
+sim:/top/expected_completion_address \
+sim:/top/expected_completion_write_data \
+sim:/top/expected_completion_valid \
+sim:/top/expected_file \
+sim:/top/parse_status \
+sim:/top/expected_index \
+sim:/top/expected_value \
+sim:/top/state_output_enabled \
+sim:/top/retire_valid \
+sim:/top/retire_pc \
+sim:/top/retire_instruction \
+sim:/top/retire_reg_write \
+sim:/top/retire_rd \
+sim:/top/retire_rd_value \
+sim:/top/instruction_count_target \
+sim:/top/retire_count 
+run
+# mul_test TEST: FAIL - timeout after 50 cycles
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
+#    Time: 510 ns  Iteration: 1  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199
+run
+# MISMATCH: x1 expected 00000006 actual 00000001
+# MISMATCH: x2 expected 00000007 actual 0000ffff
+# MISMATCH: x3 expected 0000002a actual ffffffff
+# MISMATCH: data[0] expected 0000002a actual 00000001
+# mul_test TEST: completion detected after 0 cycles
+# mul_test TEST: FAIL - 4 mismatches
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(245)
+#    Time: 516 ns  Iteration: 0  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+add wave -position insertpoint  \
+sim:/top/write_data \
+sim:/top/data_address \
+sim:/top/write_enable \
+sim:/top/clk \
+sim:/top/reset \
+sim:/top/instruction_address \
+sim:/top/instruction_data \
+sim:/top/read_data \
+sim:/top/write_data_strobe \
+sim:/top/cycle_count \
+sim:/top/mismatch_count \
+sim:/top/completion_cycle \
+sim:/top/completion_detected \
+sim:/top/expectations_loaded \
+sim:/top/expected_registers \
+sim:/top/expected_memory \
+sim:/top/expected_register_valid \
+sim:/top/expected_memory_valid \
+sim:/top/expected_completion_address \
+sim:/top/expected_completion_write_data \
+sim:/top/expected_completion_valid \
+sim:/top/expected_file \
+sim:/top/parse_status \
+sim:/top/expected_index \
+sim:/top/expected_value \
+sim:/top/record_type \
+sim:/top/test_name \
+sim:/top/expected_file_name \
+sim:/top/state_file_name \
+sim:/top/state_output_enabled \
+sim:/top/retire_valid \
+sim:/top/retire_pc \
+sim:/top/retire_instruction \
+sim:/top/retire_reg_write \
+sim:/top/retire_rd \
+sim:/top/retire_rd_value \
+sim:/top/termination_mode \
+sim:/top/instruction_count_target \
+sim:/top/retire_count
+restart
+run
+# mul_test TEST: FAIL - timeout after 50 cycles
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
+#    Time: 510 ns  Iteration: 1  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199
+# End time: 15:07:10 on Oct 05,2026, Elapsed time: 0:01:41
+# Errors: 0, Warnings: 1
