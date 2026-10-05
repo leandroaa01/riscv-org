@@ -13,7 +13,7 @@
 # 11 compiles, 0 failed with no errors.
 vsim work.top
 # vsim work.top 
-# Start time: 09:16:56 on Oct 05,2026
+# Start time: 14:24:15 on Oct 05,2026
 # Loading sv_std.std
 # Loading work.risc_v_32_i_pkg
 # Loading work.top_sv_unit
@@ -33,16 +33,60 @@ vsim work.top
 # Loading work.LoadStoreUnit_sv_unit
 # Loading work.LoadAndStoreUnit
 # Loading work.DataMemory
-add wave -position insertpoint sim:/top/*
+add wave -position insertpoint  \
+sim:/top/write_data \
+sim:/top/data_address \
+sim:/top/write_enable \
+sim:/top/clk \
+sim:/top/reset \
+sim:/top/instruction_address \
+sim:/top/instruction_data \
+sim:/top/read_data \
+sim:/top/write_data_strobe \
+sim:/top/cycle_count \
+sim:/top/mismatch_count \
+sim:/top/completion_cycle \
+sim:/top/completion_detected \
+sim:/top/expectations_loaded \
+sim:/top/expected_registers \
+sim:/top/expected_memory \
+sim:/top/expected_register_valid \
+sim:/top/expected_memory_valid \
+sim:/top/expected_completion_address \
+sim:/top/expected_completion_write_data \
+sim:/top/expected_completion_valid \
+sim:/top/expected_file \
+sim:/top/parse_status \
+sim:/top/expected_index \
+sim:/top/expected_value \
+sim:/top/record_type \
+sim:/top/test_name \
+sim:/top/expected_file_name \
+sim:/top/state_file_name \
+sim:/top/state_output_enabled \
+sim:/top/retire_valid \
+sim:/top/retire_pc \
+sim:/top/retire_instruction \
+sim:/top/retire_reg_write \
+sim:/top/retire_rd \
+sim:/top/retire_rd_value \
+sim:/top/termination_mode \
+sim:/top/instruction_count_target \
+sim:/top/retire_count
 run
-run
-# L_S_type TEST: completion detected after 18 cycles
-# L_S_type TEST: PASS
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "expected/mul_test_expected.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(123)
+#    Time: 0 ps  Iteration: 0  Instance: /top
+# mul_test TEST: FAIL - unable to open expected/mul_test_expected.txt
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(127)
+#    Time: 0 ps  Iteration: 0  Instance: /top
 # 1
-# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
-env ..
-# sim:/top
-env ..
-# sim:/top
-env ..
-# sim:/top
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 127
+run
+# mul_test TEST: FAIL - timeout after 50 cycles
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
+#    Time: 510 ns  Iteration: 1  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199
+# End time: 14:25:01 on Oct 05,2026, Elapsed time: 0:00:46
+# Errors: 0, Warnings: 4
