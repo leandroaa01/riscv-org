@@ -1,0 +1,48 @@
+# Loading project testes
+# Compile of ArithmeticLogicUnit.sv was successful.
+# Compile of ComparatorUnit.sv was successful.
+# Compile of CoreControlUnit.sv was successful.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful.
+# Compile of ProcessorCore.sv was successful.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 0 failed with no errors.
+vsim work.top
+# vsim work.top 
+# Start time: 09:16:56 on Oct 05,2026
+# Loading sv_std.std
+# Loading work.risc_v_32_i_pkg
+# Loading work.top_sv_unit
+# Loading work.top
+# Loading work.InstructionMemory
+# Loading work.ProcessorCore_sv_unit
+# Loading work.ProcessorCore
+# Loading work.RegisterFile
+# Loading work.ImmediateSignExtend_sv_unit
+# Loading work.ImmediateSignExtend
+# Loading work.CoreControlUnit_sv_unit
+# Loading work.CoreControlUnit
+# Loading work.ArithmeticLogicUnit_sv_unit
+# Loading work.ArithmeticLogicUnit
+# Loading work.ComparatorUnit_sv_unit
+# Loading work.ComparatorUnit
+# Loading work.LoadStoreUnit_sv_unit
+# Loading work.LoadAndStoreUnit
+# Loading work.DataMemory
+add wave -position insertpoint sim:/top/*
+run
+run
+# L_S_type TEST: completion detected after 18 cycles
+# L_S_type TEST: PASS
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+env ..
+# sim:/top
+env ..
+# sim:/top
+env ..
+# sim:/top
