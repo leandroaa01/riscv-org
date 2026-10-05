@@ -1,19 +1,7 @@
 # Loading project testes
-# Compile of ArithmeticLogicUnit.sv was successful.
-# Compile of ComparatorUnit.sv was successful.
-# Compile of CoreControlUnit.sv was successful.
-# Compile of DataMemory.sv was successful.
-# Compile of ImmediateSignExtend.sv was successful.
-# Compile of InstructionMemory.sv was successful.
-# Compile of LoadStoreUnit.sv was successful.
-# Compile of ProcessorCore.sv was successful.
-# Compile of RegisterFile.sv was successful.
-# Compile of risc_v_32_i_pkg.sv was successful.
-# Compile of top.sv was successful.
-# 11 compiles, 0 failed with no errors.
 vsim work.top
 # vsim work.top 
-# Start time: 09:16:56 on Oct 05,2026
+# Start time: 11:47:31 on Oct 05,2026
 # Loading sv_std.std
 # Loading work.risc_v_32_i_pkg
 # Loading work.top_sv_unit
@@ -33,16 +21,115 @@ vsim work.top
 # Loading work.LoadStoreUnit_sv_unit
 # Loading work.LoadAndStoreUnit
 # Loading work.DataMemory
-add wave -position insertpoint sim:/top/*
 run
 run
 # L_S_type TEST: completion detected after 18 cycles
 # L_S_type TEST: PASS
 # 1
 # Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
-env ..
-# sim:/top
-env ..
-# sim:/top
-env ..
-# sim:/top
+# Compile of ArithmeticLogicUnit.sv was successful.
+# Compile of ComparatorUnit.sv was successful.
+# Compile of CoreControlUnit.sv was successful.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful.
+# Compile of ProcessorCore.sv was successful.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 0 failed with no errors.
+vsim work.top
+# End time: 11:49:05 on Oct 05,2026, Elapsed time: 0:01:34
+# Errors: 0, Warnings: 2
+# vsim work.top 
+# Start time: 11:49:05 on Oct 05,2026
+# Loading sv_std.std
+# Loading work.risc_v_32_i_pkg
+# Loading work.top_sv_unit
+# Loading work.top
+# Loading work.InstructionMemory
+# Loading work.ProcessorCore_sv_unit
+# Loading work.ProcessorCore
+# Loading work.RegisterFile
+# Loading work.ImmediateSignExtend_sv_unit
+# Loading work.ImmediateSignExtend
+# Loading work.CoreControlUnit_sv_unit
+# Loading work.CoreControlUnit
+# Loading work.ArithmeticLogicUnit_sv_unit
+# Loading work.ArithmeticLogicUnit
+# Loading work.ComparatorUnit_sv_unit
+# Loading work.ComparatorUnit
+# Loading work.LoadStoreUnit_sv_unit
+# Loading work.LoadAndStoreUnit
+# Loading work.DataMemory
+run
+add wave -position insertpoint  \
+sim:/top/write_data \
+sim:/top/data_address \
+sim:/top/write_enable \
+sim:/top/clk \
+sim:/top/reset \
+sim:/top/instruction_address \
+sim:/top/instruction_data \
+sim:/top/read_data \
+sim:/top/write_data_strobe \
+sim:/top/cycle_count \
+sim:/top/mismatch_count \
+sim:/top/completion_cycle \
+sim:/top/completion_detected \
+sim:/top/expectations_loaded \
+sim:/top/expected_registers \
+sim:/top/expected_memory \
+sim:/top/expected_register_valid \
+sim:/top/expected_memory_valid \
+sim:/top/expected_completion_address \
+sim:/top/expected_completion_write_data \
+sim:/top/expected_completion_valid \
+sim:/top/expected_file \
+sim:/top/parse_status \
+sim:/top/expected_index \
+sim:/top/expected_value \
+sim:/top/record_type \
+sim:/top/test_name \
+sim:/top/expected_file_name \
+sim:/top/state_file_name \
+sim:/top/state_output_enabled \
+sim:/top/retire_valid \
+sim:/top/retire_pc \
+sim:/top/retire_instruction \
+sim:/top/retire_reg_write \
+sim:/top/retire_rd \
+sim:/top/retire_rd_value \
+sim:/top/termination_mode \
+sim:/top/instruction_count_target \
+sim:/top/retire_count
+run
+# L_S_type TEST: completion detected after 18 cycles
+# L_S_type TEST: PASS
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+run
+restart
+run
+# L_S_type TEST: completion detected after 18 cycles
+# L_S_type TEST: PASS
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+restart
+run
+# MISMATCH: x1 expected ffffffff actual 00000001
+# MISMATCH: data[16] expected ffffffff actual 00000001
+# L_S_type TEST: completion detected after 18 cycles
+# L_S_type TEST: FAIL - 2 mismatches
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(245)
+#    Time: 197 ns  Iteration: 0  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+restart
+run
+# L_S_type TEST: FAIL - timeout after 50 cycles
+# ** Note: $finish    : /home/malva/Documentos/half/org/riscv-org/tb/top.sv(199)
+#    Time: 510 ns  Iteration: 1  Instance: /top
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 199

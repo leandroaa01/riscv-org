@@ -13,7 +13,7 @@ vArithmeticLogicUnit
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
 Z1 DXx4 work 15 risc_v_32_i_pkg 0 22 jHTD``c6R:g0Fb;_I4kkW1
 DXx4 work 27 ArithmeticLogicUnit_sv_unit 0 22 VW?I?E6_eaCG>VUDH^oOY1
-Z2 !s110 1791202598
+Z2 !s110 1791211731
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
@@ -23,14 +23,14 @@ IW^OkhX45;IbHi8?cTQ6LX2
 !s105 ArithmeticLogicUnit_sv_unit
 S1
 Z4 d/home/malva/Documentos/half/org/riscv-org
-Z5 w1791200530
+Z5 w1791208179
 Z6 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ArithmeticLogicUnit.sv
 Z7 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ArithmeticLogicUnit.sv
-!i122 25
+!i122 36
 L0 15 24
 Z8 OV;L;2020.1;71
 31
-Z9 !s108 1791202598.000000
+Z9 !s108 1791211731.000000
 Z10 !s107 /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ArithmeticLogicUnit.sv|
 Z11 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ArithmeticLogicUnit.sv|
 !i113 1
@@ -53,7 +53,7 @@ R4
 R5
 R6
 R7
-!i122 25
+!i122 36
 Z14 L0 13 0
 R8
 31
@@ -81,7 +81,7 @@ R4
 Z15 w1789135866
 Z16 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ComparatorUnit.sv
 Z17 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ComparatorUnit.sv
-!i122 26
+!i122 37
 L0 16 21
 R8
 31
@@ -108,7 +108,7 @@ R4
 R15
 R16
 R17
-!i122 26
+!i122 37
 L0 14 0
 R8
 31
@@ -136,7 +136,7 @@ R4
 R5
 Z20 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/CoreControlUnit.sv
 Z21 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/CoreControlUnit.sv
-!i122 27
+!i122 38
 L0 13 359
 R8
 31
@@ -163,7 +163,7 @@ R4
 R5
 R20
 R21
-!i122 27
+!i122 38
 Z24 L0 11 0
 R8
 31
@@ -187,7 +187,7 @@ R4
 R15
 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/DataMemory.sv
 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/DataMemory.sv
-!i122 28
+!i122 39
 L0 12 29
 R8
 r1
@@ -217,7 +217,7 @@ R4
 R15
 Z26 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ImmediateSignExtend.sv
 Z27 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ImmediateSignExtend.sv
-!i122 29
+!i122 40
 L0 14 20
 R8
 31
@@ -244,7 +244,7 @@ R4
 R15
 R26
 R27
-!i122 29
+!i122 40
 Z30 L0 12 0
 R8
 31
@@ -265,10 +265,10 @@ IMNcHY9N[4a=8HGK3]>mHa2
 R3
 S1
 R4
-w1791201206
+Z31 w1791208172
 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/InstructionMemory.sv
 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/InstructionMemory.sv
-!i122 30
+!i122 41
 L0 12 19
 R8
 r1
@@ -285,7 +285,7 @@ vLoadAndStoreUnit
 R0
 R1
 DXx4 work 21 LoadStoreUnit_sv_unit 0 22 OF^z^^Y3mE>5Tbi6`L6D63
-Z31 !s110 1791202599
+R2
 R3
 r1
 !s85 0
@@ -298,13 +298,13 @@ R4
 R15
 Z32 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv
 Z33 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv
-!i122 31
+!i122 42
 L0 14 49
 R8
 31
-Z34 !s108 1791202599.000000
-Z35 !s107 /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv|
-Z36 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv|
+R9
+Z34 !s107 /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv|
+Z35 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv|
 !i113 1
 R12
 R13
@@ -312,7 +312,7 @@ n@load@and@store@unit
 XLoadStoreUnit_sv_unit
 R0
 R1
-R31
+R2
 VOF^z^^Y3mE>5Tbi6`L6D63
 r1
 !s85 0
@@ -325,13 +325,13 @@ R4
 R15
 R32
 R33
-!i122 31
+!i122 42
 R30
 R8
 31
+R9
 R34
 R35
-R36
 !i113 1
 R12
 R13
@@ -340,7 +340,7 @@ vProcessorCore
 R0
 R1
 DXx4 work 21 ProcessorCore_sv_unit 0 22 5kFeQ>>KYWhJVYC>AoRla2
-R31
+R2
 R3
 r1
 !s85 0
@@ -350,16 +350,16 @@ Ij6O6hlaCk?W6HV>OdK9ID1
 !s105 ProcessorCore_sv_unit
 S1
 R4
-Z37 w1789225668
-Z38 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv
-Z39 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv
-!i122 32
+Z36 w1791203582
+Z37 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv
+Z38 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv
+!i122 43
 L0 14 178
 R8
 31
-R34
-Z40 !s107 /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv|
-Z41 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv|
+R9
+Z39 !s107 /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv|
+Z40 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv|
 !i113 1
 R12
 R13
@@ -367,7 +367,7 @@ n@processor@core
 XProcessorCore_sv_unit
 R0
 R1
-R31
+R2
 V5kFeQ>>KYWhJVYC>AoRla2
 r1
 !s85 0
@@ -377,23 +377,23 @@ I5kFeQ>>KYWhJVYC>AoRla2
 !i103 1
 S1
 R4
+R36
 R37
 R38
-R39
-!i122 32
+!i122 43
 R30
 R8
 31
-R34
+R9
+R39
 R40
-R41
 !i113 1
 R12
 R13
 n@processor@core_sv_unit
 vRegisterFile
 R0
-R31
+R2
 !i10b 1
 !s100 H;3UCFl0;0582T@d<hBEH1
 R25
@@ -404,13 +404,13 @@ R4
 R15
 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv
 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv
-!i122 33
+!i122 44
 L0 13 29
 R8
 r1
 !s85 0
 31
-R34
+R9
 !s107 /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv|
 !i113 1
@@ -419,7 +419,7 @@ R13
 n@register@file
 Xrisc_v_32_i_pkg
 R0
-R31
+R2
 !i10b 1
 !s100 C::f@^[OZ?giE_SCoPQ<_3
 R25
@@ -427,16 +427,16 @@ IjHTD``c6R:g0Fb;_I4kkW1
 VjHTD``c6R:g0Fb;_I4kkW1
 S1
 R4
-R15
+R31
 8/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/risc_v_32_i_pkg.sv
 F/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/risc_v_32_i_pkg.sv
-!i122 34
+!i122 45
 R24
 R8
 r1
 !s85 0
 31
-R34
+R9
 !s107 /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/risc_v_32_i_pkg.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/risc_v_32_i_pkg.sv|
 !i113 1
@@ -446,7 +446,7 @@ vtop
 R0
 R1
 DXx4 work 11 top_sv_unit 0 22 e_?7E[fKjMVE1]^YEAlB:2
-R31
+R2
 R3
 r1
 !s85 0
@@ -456,23 +456,23 @@ IXPM71I?RGC]Dnz0;Q7:4U1
 !s105 top_sv_unit
 S1
 R4
-Z42 w1789225733
-Z43 8/home/malva/Documentos/half/org/riscv-org/tb/top.sv
-Z44 F/home/malva/Documentos/half/org/riscv-org/tb/top.sv
-!i122 35
+Z41 w1789225733
+Z42 8/home/malva/Documentos/half/org/riscv-org/tb/top.sv
+Z43 F/home/malva/Documentos/half/org/riscv-org/tb/top.sv
+!i122 46
 L0 15 270
 R8
 31
-R34
+R9
 !s107 /home/malva/Documentos/half/org/riscv-org/tb/top.sv|
-Z45 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/tb/top.sv|
+Z44 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/malva/Documentos/half/org/riscv-org/tb/top.sv|
 !i113 1
 R12
 R13
 Xtop_sv_unit
 R0
 R1
-R31
+R2
 Ve_?7E[fKjMVE1]^YEAlB:2
 r1
 !s85 0
@@ -482,16 +482,16 @@ Ie_?7E[fKjMVE1]^YEAlB:2
 !i103 1
 S1
 R4
+R41
 R42
 R43
-R44
-!i122 35
+!i122 46
 R14
 R8
 31
-R34
-Z46 !s107 /home/malva/Documentos/half/org/riscv-org/tb/top.sv|
-R45
+R9
+Z45 !s107 /home/malva/Documentos/half/org/riscv-org/tb/top.sv|
+R44
 !i113 1
 R12
 R13

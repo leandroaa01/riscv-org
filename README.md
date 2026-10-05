@@ -238,3 +238,20 @@ The RISC-V community for their open and collaborative approach to instruction se
 If you have any questions, suggestions, or issues, please feel free to open an issue in this repository or contact us at [harieshanbalagan@outlook.com](mailto:harieshanbalagan@outlook.com).
 
 Happy coding!
+00102823
+03e05103
+002017a3
+03e01183
+00301723
+03d04203
+004006a3
+03d00283
+00500623
+03c05303
+006015a3
+03c01383
+00701523
+03b04403
+008004a3
+03b00483
+00900423

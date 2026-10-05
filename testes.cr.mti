@@ -1,13 +1,4 @@
-/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ImmediateSignExtend.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ImmediateSignExtend.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling package ImmediateSignExtend_sv_unit
--- Importing package risc_v_32_i_pkg
--- Compiling module ImmediateSignExtend
-
-Top level modules:
-	ImmediateSignExtend
-
-} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ComparatorUnit.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ComparatorUnit.sv
+/home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ComparatorUnit.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ComparatorUnit.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling package ComparatorUnit_sv_unit
 -- Importing package risc_v_32_i_pkg
@@ -16,30 +7,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	ComparatorUnit
 
-} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ArithmeticLogicUnit.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ArithmeticLogicUnit.sv
+} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ImmediateSignExtend.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ImmediateSignExtend.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling package ArithmeticLogicUnit_sv_unit
+-- Compiling package ImmediateSignExtend_sv_unit
 -- Importing package risc_v_32_i_pkg
--- Compiling module ArithmeticLogicUnit
+-- Compiling module ImmediateSignExtend
 
 Top level modules:
-	ArithmeticLogicUnit
-
-} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module RegisterFile
-
-Top level modules:
-	RegisterFile
-
-} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/ProcessorCore.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling package ProcessorCore_sv_unit
--- Importing package risc_v_32_i_pkg
--- Compiling module ProcessorCore
-
-Top level modules:
-	ProcessorCore
+	ImmediateSignExtend
 
 } {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/LoadStoreUnit.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -50,6 +25,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	LoadAndStoreUnit
 
+} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/RegisterFile.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RegisterFile
+
+Top level modules:
+	RegisterFile
+
 } {} {}} /home/malva/Documentos/half/org/riscv-org/tb/top.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/tb/top.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling package top_sv_unit
@@ -58,29 +40,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	top
-
-} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/CoreControlUnit.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/CoreControlUnit.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling package CoreControlUnit_sv_unit
--- Importing package risc_v_32_i_pkg
--- Compiling module CoreControlUnit
-
-Top level modules:
-	CoreControlUnit
-
-} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/risc_v_32_i_pkg.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/risc_v_32_i_pkg.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling package risc_v_32_i_pkg
-
-Top level modules:
-	--none--
-
-} {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/InstructionMemory.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/InstructionMemory.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module InstructionMemory
-
-Top level modules:
-	InstructionMemory
 
 } {} {}} /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/DataMemory.sv {1 {vlog -work work -sv -stats=none /home/malva/Documentos/half/org/riscv-org/src/single_cycle_processor/DataMemory.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
