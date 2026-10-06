@@ -19,7 +19,7 @@ module InstructionMemory
 
     initial
     begin
-        $readmemh("max_test.txt",instruction); // use the right txt file for testing
+        $readmemh("mac_test.txt",instruction); // use the right txt file for testing
     end
 
     always_comb
