@@ -14,12 +14,14 @@ module RegisterFile #(parameter XLEN = 32, parameter REG_ADDR_WIDTH = 5)
 (
     output logic [XLEN-1:0]             read_data_1_o,
     output logic [XLEN-1:0]             read_data_2_o,
+    output logic [XLEN-1:0]             read_data_3_o,
     input  logic                        clk_i,
     input  logic                        write_enable_i,
     input  logic [XLEN-1:0]             write_data_i,
     input  logic [REG_ADDR_WIDTH-1:0]   write_address_i,
     input  logic [REG_ADDR_WIDTH-1:0]   read_address_1_i,
-    input  logic [REG_ADDR_WIDTH-1:0]   read_address_2_i
+    input  logic [REG_ADDR_WIDTH-1:0]   read_address_2_i,
+    input  logic [REG_ADDR_WIDTH-1:0]   read_address_3_i
 );
 
     logic [XLEN-1:0]register [XLEN-1:0];
@@ -28,6 +30,7 @@ module RegisterFile #(parameter XLEN = 32, parameter REG_ADDR_WIDTH = 5)
     begin
         assign read_data_1_o = (read_address_1_i == 0) ? 0 : register[read_address_1_i];
         assign read_data_2_o = (read_address_2_i == 0) ? 0 : register[read_address_2_i];
+        assign read_data_3_o = (read_address_3_i == 0) ? 0 : register[read_address_3_i];
     end
 
     always_ff @(negedge clk_i)
