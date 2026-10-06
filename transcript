@@ -1,4 +1,20 @@
 # Loading project riscv
+dataset reload -f
+# Dataset not found: 
+dataset reload -f
+# Dataset not found: 
+# Compile of ArithmeticLogicUnit.sv was successful with warnings.
+# Compile of ComparatorUnit.sv was successful with warnings.
+# Compile of CoreControlUnit.sv was successful with warnings.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful with warnings.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful with warnings.
+# Compile of ProcessorCore.sv was successful with warnings.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful with warnings.
+# 11 compiles, 0 failed with no errors.
 # Compile of ArithmeticLogicUnit.sv was successful.
 # Compile of ComparatorUnit.sv was successful.
 # Compile of CoreControlUnit.sv was successful.
@@ -13,7 +29,7 @@
 # 11 compiles, 0 failed with no errors.
 vsim work.top
 # vsim work.top 
-# Start time: 15:33:09 on Oct 05,2026
+# Start time: 09:16:57 on Oct 06,2026
 # Loading sv_std.std
 # Loading work.risc_v_32_i_pkg
 # Loading work.top_sv_unit
@@ -74,7 +90,14 @@ sim:/top/termination_mode \
 sim:/top/instruction_count_target \
 sim:/top/retire_count
 run
-# max_test TEST: completion detected after 4 cycles
-# max_test TEST: PASS
+# mac_test TEST: completion detected after 5 cycles
+# mac_test TEST: PASS
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# mac_test TEST: completion detected after 5 cycles
+# mac_test TEST: PASS
 # 1
 # Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
