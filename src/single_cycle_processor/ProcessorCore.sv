@@ -44,9 +44,11 @@ module ProcessorCore
     logic [31:0]immediate;
     logic [31:0]reg_source_1;
     logic [31:0]reg_source_2;
+    logic [31:0]reg_source_3;
 
     logic [31:0]alu_port_a;
     logic [31:0]alu_port_b;
+    logic [31:0]alu_port_c;
     logic [31:0]comp_port_a;
     logic [31:0]comp_port_b;
 
@@ -93,12 +95,14 @@ module ProcessorCore
     (
         .read_data_1_o      (reg_source_1),
         .read_data_2_o      (reg_source_2),
+        .read_data_3_o      (reg_source_3),
         .clk_i              (clk_i),
         .write_enable_i     (reg_write_enable),
         .write_data_i       (reg_data),
         .write_address_i    (instruction[11:7]),
         .read_address_1_i   (instruction[19:15]),
-        .read_address_2_i   (instruction[24:20])
+        .read_address_2_i   (instruction[24:20]),
+        .read_address_3_i   (instruction[11:7])
     );
 
     ImmediateSignExtend #(.XLEN(XLEN)) ise
@@ -128,6 +132,7 @@ module ProcessorCore
 
     assign alu_port_a = execute_port_a_sel ? reg_source_1 : PC;
     assign alu_port_b = execute_port_b_sel ? reg_source_2 : immediate;
+    assign alu_port_c = reg_source_3;
     assign comp_port_a = reg_source_1;
     assign comp_port_b = execute_port_b_sel ? immediate : reg_source_2;
 
@@ -136,6 +141,7 @@ module ProcessorCore
         .alu_o          (alu_output),
         .alu_port_a_i   (alu_port_a),
         .alu_port_b_i   (alu_port_b),
+        .alu_port_c_i   (alu_port_c),
         .alu_op_sel_i   (alu_op_sel)
     );
 
