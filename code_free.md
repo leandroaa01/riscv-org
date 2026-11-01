@@ -1,7 +1,7 @@
 codigo livre:
 4'b1001 - COM O MAX AGORA
 4'b1011 - COM O MAC AGORA
-4'b1100
+4'b1100 - COM O SIGN AGORA
 4'b1110
 4'b1111
 
