@@ -109,12 +109,13 @@ Arquivos: `sign_test.txt` e `expected/sign_test_expected.txt`.
 | positivo | `00000009` | `00000001` |
 | mais negativo | `80000000` | `ffffffff` |
 | maior positivo | `7fffffff` | `00000001` |
+| positivo par, só bits altos | `40000000` | `00000001` |
 | rs1 = x0 | `x0` | `00000000` |
 | rd = rs1 | `sign x1, x1` com x1 = -5 | `ffffffff` |
 
 Resultado esperado no transcript:
 
 ```
-# sign_test TEST: completion detected after 15 cycles
+# sign_test TEST: completion detected after 17 cycles
 # sign_test TEST: PASS
 ```
