@@ -6,6 +6,9 @@ Projeto da Unidade 2 de DIM0129 (DIMAp/UFRN, 2026.2). Partimos do processador RV
 
 O enunciado está em [docs/DIM0129_-_RISC-V_III.pdf](docs/DIM0129_-_RISC-V_III.pdf).
 
+## Autores
+Este projeto foi desenvolvido por Carlos Alberto de Lima Neto (<carlos.neto.087@ufrn.edu.br>), Leandro Andrade de Araujo (<leandro.andrade.401@ufrn.edu.br>), Luiz Guilherme Carvalho Viana(<luiz.viana.097@ufrn.edu.br>) e Osvaldo Heitor de Andrade Tavares de Souza(< heitor.andrade.102@ufrn.edu.br>).
+
 ## Instruções adicionadas
 
 | Instrução | Semântica | Relação com IA |
