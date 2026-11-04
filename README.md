@@ -85,6 +85,8 @@ O testbench lê `expected/<teste>_expected.txt` e executa o programa até o stor
 | `mul_test` | `6 * 7 = 42` | 4 |
 | `max_test` | `max(-5, 9) = 9`, comparação com sinal | 4 |
 | `mac_test` | `3 + 5 * 7 = 38` | 5 |
+| `mac_test2` | Soma `x1 + x2`, acumula o produto com MAC (`12 + 5 * 7 = 47`) e subtrai `x2` (`x4 = 40`) | 6 |
+| `mac_test3` | Soma, MAC em `x4` (`12 + 5 * 7 = 47`), subtração (`47 - 2 = 45`) e novo MAC (`45 + 7 * 2 = 59`); grava `59` na memória | 8 |
 | `sign_test` | Negativo, zero, positivo, `0x80000000`, `0x7FFFFFFF`, `0x40000000`, `rs1 = x0` e `rd = rs1` | 17 |
 | `R_type` | Instruções R do RV32I base (`add`, `sub`, `sll`, `slt`, `sltu`, `xor`, `srl`, `sra`, `or`, `and`), programa enviado pela professora | 12 |
 
