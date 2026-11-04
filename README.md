@@ -83,6 +83,15 @@ O testbench lê `expected/<teste>_expected.txt` e executa o programa até o stor
 | `max_test` | `max(-5, 9) = 9`, comparação com sinal | 4 |
 | `mac_test` | `3 + 5 * 7 = 38` | 5 |
 | `sign_test` | Negativo, zero, positivo, `0x80000000`, `0x7FFFFFFF`, `0x40000000`, `rs1 = x0` e `rd = rs1` | 17 |
+| `R_type` | Instruções R do RV32I base (`add`, `sub`, `sll`, `slt`, `sltu`, `xor`, `srl`, `sra`, `or`, `and`), programa enviado pela professora | 12 |
+
+O `R_type` não termina com um store, então precisa rodar no modo de contagem de instruções. No modo padrão, o testbench espera um store que nunca acontece e termina com `timeout`:
+
+```text
+vsim work.top +TEST=R_type +TERMINATION=instruction_count +INSTRUCTION_COUNT=12
+```
+
+Nesse modo o testbench imprime uma linha `RETIRE` por instrução e, no fim, compara os registradores com `expected/R_type_expected.txt`.
 
 ## Limitações
 
