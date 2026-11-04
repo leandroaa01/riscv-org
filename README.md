@@ -43,7 +43,7 @@ Essas codificações são próprias deste projeto. A `mul` não segue a `mul` da
 | `RegisterFile.sv` | Terceira porta de leitura (`read_address_3_i`), que lê o valor atual de `rd` para a `mac` |
 | `ProcessorCore.sv` | Liga o valor lido de `rd` à porta C da ULA |
 
-`mul`, `max` e `sign` usam o caminho de dados que toda instrução R já tem. A `mac` é a única que precisou de um operando a mais. Os detalhes estão em [docs/mac_operation.md](docs/mac_operation.md) e [docs/sign_operation.md](docs/sign_operation.md).
+`mul`, `max` e `sign` usam o caminho de dados que toda instrução R já tem. A `mac` é a única que precisou de um operando a mais. Os detalhes estão em [docs/mac_operation.md](docs/mac_operation.md), [docs/max_operation.md](docs/max_operation.md) e [docs/sign_operation.md](docs/sign_operation.md).
 
 ## Estrutura
 
