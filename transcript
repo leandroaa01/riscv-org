@@ -1,8 +1,4 @@
 # Loading project riscv
-dataset reload -f
-# Dataset not found: 
-dataset reload -f
-# Dataset not found: 
 # Compile of ArithmeticLogicUnit.sv was successful with warnings.
 # Compile of ComparatorUnit.sv was successful with warnings.
 # Compile of CoreControlUnit.sv was successful with warnings.
@@ -27,9 +23,21 @@ dataset reload -f
 # Compile of risc_v_32_i_pkg.sv was successful.
 # Compile of top.sv was successful.
 # 11 compiles, 0 failed with no errors.
+# Compile of ArithmeticLogicUnit.sv was successful.
+# Compile of ComparatorUnit.sv was successful.
+# Compile of CoreControlUnit.sv was successful.
+# Compile of DataMemory.sv was successful.
+# Compile of ImmediateSignExtend.sv was successful.
+# Compile of InstructionMemory.sv was successful.
+# Compile of LoadStoreUnit.sv was successful.
+# Compile of ProcessorCore.sv was successful.
+# Compile of RegisterFile.sv was successful.
+# Compile of risc_v_32_i_pkg.sv was successful.
+# Compile of top.sv was successful.
+# 11 compiles, 0 failed with no errors.
 vsim work.top
 # vsim work.top 
-# Start time: 09:16:57 on Oct 06,2026
+# Start time: 07:06:11 on Oct 15,2026
 # Loading sv_std.std
 # Loading work.risc_v_32_i_pkg
 # Loading work.top_sv_unit
@@ -89,15 +97,41 @@ sim:/top/retire_rd_value \
 sim:/top/termination_mode \
 sim:/top/instruction_count_target \
 sim:/top/retire_count
-run
-# mac_test TEST: completion detected after 5 cycles
-# mac_test TEST: PASS
-# 1
-# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+add wave -position insertpoint  \
+sim:/top/PrCore/read_data_i \
+sim:/top/PrCore/write_data_o \
+sim:/top/PrCore/reg_source_1 \
+sim:/top/PrCore/reg_source_2 \
+sim:/top/PrCore/reg_source_3 \
+sim:/top/PrCore/alu_port_a \
+sim:/top/PrCore/alu_port_b \
+sim:/top/PrCore/alu_port_c \
+sim:/top/PrCore/reg_write_data_sel \
+sim:/top/PrCore/reg_data
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 run
-# mac_test TEST: completion detected after 5 cycles
-# mac_test TEST: PASS
+# mac_test3 TEST: completion detected after 8 cycles
+# mac_test3 TEST: PASS
 # 1
 # Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+add wave -position insertpoint  \
+sim:/top/dmem/data
+add wave -position insertpoint  \
+sim:/top/PrCore/regfile/register
+restart
+run
+# mac_test3 TEST: completion detected after 8 cycles
+# mac_test3 TEST: PASS
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+run
+restart
+run
+# mac_test3 TEST: completion detected after 8 cycles
+# mac_test3 TEST: PASS
+# 1
+# Break in Module top at /home/malva/Documentos/half/org/riscv-org/tb/top.sv line 245
+run
+run
+run
