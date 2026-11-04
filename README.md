@@ -1,257 +1,95 @@
-# RV32I RISC-V Processor
+# RV32I com instruções customizadas para IA
 
-![RV32I](./doc/images/Pipelined_processor.png)
+![Processador monociclo](./docs/images/Single_cycle_processor.png)
 
-This repository contains the SystemVerilog implementation of two types of RV32I RISC-V processors: a single-cycle processor and a multi-cycle processor. The RV32I architecture is a 32-bit base integer instruction set architecture from the RISC-V family.
+Projeto da Unidade 2 de DIM0129 (DIMAp/UFRN, 2026.2). Partimos do processador RV32I monociclo de [Hariesh Anbalagan](https://github.com/HarieshAnbalagan/RV32I), escrito em SystemVerilog, e adicionamos as três instruções pedidas no enunciado (`max`, `mac` e `sign`) e também uma `mul`.
 
-## Folder Structure
+O enunciado está em [docs/DIM0129_-_RISC-V_III.pdf](docs/DIM0129_-_RISC-V_III.pdf).
 
-- `src`: Contains the source code for the RV32I processors.
-  - `single_cycle_processor`: Implementation of the single-cycle processor.
-  
-- `tb`: Contains test benches and simulation scripts for verifying the processor's functionality.
+## Instruções adicionadas
 
-- `doc`: Contains documentation related to the project.
-  - `images`: Stores images used in the documentation.
+| Instrução | Semântica | Relação com IA |
+|---|---|---|
+| `mul rd, rs1, rs2` | `rd = rs1 * rs2` (32 bits baixos) | Base para a `mac` |
+| `max rd, rs1, rs2` | `rd = max(rs1, rs2)`, com sinal | Pooling / redução |
+| `mac rd, rs1, rs2` | `rd = rd + rs1 * rs2` | Redes neurais, convolução |
+| `sign rd, rs1` | `rd = -1` se `rs1 < 0`, `0` se `rs1 = 0`, `1` se `rs1 > 0` | Ativação, classificação, quantização |
 
-## Features
+### Codificação
 
-- Support for RV32I instruction set architecture.
-- Implementation of both multi-cycle and single-cycle processors.
-- Written in SystemVerilog for FPGA implementations.
+Todas usam o formato R (opcode `0110011`) com `funct7 = 0100000`. A `CoreControlUnit` decodifica as instruções R pelo par `{funct7[5], funct3}`, e cada instrução nova ocupou um código que não existe no RV32I base:
 
-## Project Status
+| Instrução | funct3 | `{funct7[5], funct3}` | Exemplo |
+|---|---|---|---|
+| `mul` | `010` | `4'b1010` | `0x4020A1B3` = `mul x3, x1, x2` |
+| `max` | `001` | `4'b1001` | `0x402091B3` = `max x3, x1, x2` |
+| `mac` | `011` | `4'b1011` | `0x4020B1B3` = `mac x3, x1, x2` |
+| `sign` | `100` | `4'b1100` | `0x4000C233` = `sign x4, x1` (`rs2 = x0`) |
 
-This project is currently in a hobbyist or educational stage and is designed to provide a basic understanding of RV32I RISC-V processors. It does not include advanced features such as cache or branch predictors. While there are plans to improve the design in the future, due to time constraints, the project may not be expanded to a full-fledged processor with all advanced functionalities.
+Os códigos que ainda estão livres ficam anotados em [code_free.md](code_free.md).
 
-## Important Note
+Essas codificações são próprias deste projeto. A `mul` não segue a `mul` da extensão M (`funct7 = 0000001`, `funct3 = 000`), e a `sign` tem a mesma codificação do `xnor` da extensão Zbb. Por isso o GCC não gera essas instruções e o `objdump` não as reconhece.
 
-This RV32I RISC-V processor implementation is based on an earlier version of the RISC-V ISA (Instruction Set Architecture). As a result, it may not include all the features, extensions, or instructions introduced in the latest RISC-V ISA versions.
+### Mudanças no hardware
 
-Please be aware that if you are looking for a processor that fully supports the latest RISC-V ISA specifications, this project may not meet those requirements. However, it can still serve as a valuable educational resource and a starting point for understanding RISC-V architecture and digital design principles.
+| Arquivo | Mudança |
+|---|---|
+| `risc_v_32_i_pkg.sv` | `OP_MUL`, `OP_MAX`, `OP_MAC` e `OP_SIGN` no enum `alu_select_e` |
+| `CoreControlUnit.sv` | Novos casos no decode das instruções R |
+| `ArithmeticLogicUnit.sv` | As quatro operações novas e a porta `alu_port_c_i`, usada pela `mac` |
+| `RegisterFile.sv` | Terceira porta de leitura (`read_address_3_i`), que lê o valor atual de `rd` para a `mac` |
+| `ProcessorCore.sv` | Liga o valor lido de `rd` à porta C da ULA |
 
-If you require a processor with the latest ISA features, we recommend exploring other projects or implementations that align with your specific needs and target ISA version.
+`mul`, `max` e `sign` usam o caminho de dados que toda instrução R já tem. A `mac` é a única que precisou de um operando a mais. Os detalhes estão em [docs/mac_operation.md](docs/mac_operation.md) e [docs/sign_operation.md](docs/sign_operation.md).
 
-## Getting Started
+## Estrutura
 
-Follow these steps to get started with the RV32I RISC-V processors:
+- `src/single_cycle_processor/`: RTL do processador
+- `tb/top.sv`: testbench que confere os resultados sozinho
+- `*_test.txt`, `L_S_type.txt`: programas de teste em hexadecimal
+- `expected/`: resultados esperados de cada teste
+- `Data_Memory_Load.txt`: conteúdo inicial da memória de dados
+- `docs/`: enunciado, documentação das instruções e imagens
 
-1. **Clone the Repository:**
-```shell
-# Download repo.
-$ git clone https://github.com/HarieshAnbalagan/RV32I.git
-$ cd RV32I
-```
+## Simulação
 
-2. **Simulation and Testing:**
-- Navigate to the `tb` directory for simulation scripts and testbenches.
-- Use your preferred EDA tools for simulation (e.g., ModelSim).
+No ModelSim:
 
-3. **Documentation:**
-- Refer to the `doc` directory for detailed documentation on the processor's architecture and design principles.
-
-4. **Contributing:**
-- If you'd like to contribute to this project, please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
-
-## Verification
-
-### Directed Differential Verification
-
-Run the existing deterministic directed flow from the repository root:
-
-```shell
-python tb\regression.py
-```
-
-The flow discovers machine-code programs, uses the termination manifest, runs the V3 legacy checks where expected-result files exist, and runs V4 differential checking for supported manifest entries. The current directed differential baseline is:
+1. Adicione ao projeto todos os arquivos `.sv` de `src/single_cycle_processor/` e o `tb/top.sv`.
+2. Compile tudo (Compile All).
+3. Simule:
 
 ```text
-PASS: 16
-FAIL: 0
-SKIP: 0
+vsim work.top
+add wave -r /*
+run -all
 ```
 
-Directed and randomized tests are complementary. Random tests do not replace the directed regression.
+Para trocar de teste, mude dois lugares:
 
-### V7 Constrained-Random Verification
+- o arquivo carregado pelo `$readmemh` em `src/single_cycle_processor/InstructionMemory.sv`;
+- o `test_name` padrão em `tb/top.sv`, ou passe `+TEST=<nome>` para o `vsim`. Esse nome só escolhe o arquivo de resultados esperados, não o programa.
 
-[tb/random_regression.py](tb/random_regression.py) generates deterministic machine-code programs and invokes [tb/differential_check.py](tb/differential_check.py) for each temporary test. The reference model is sequential and architectural; the RTL is pipelined.
+O projeto também roda no Icarus Verilog 12 (`iverilog -g2012`), desde que a linha do SRA/SRL em `CoreControlUnit.sv` receba um cast para `alu_select_e`. O Icarus recusa a linha sem o cast; o ModelSim aceita.
 
-```text
-        RV32I program
-       |
-         +---------+---------+
-         v                   v
-       Python reference model      RTL
-         |                   |
-       architectural events  retirement events
-         +---------+---------+
-       v
-     differential checker
-       |
-        retirement and final state checks
-```
+## Testes
 
-Generated machine-code files and temporary termination entries are removed after each test. The machine-code image is authoritative for RTL execution.
+O testbench lê `expected/<teste>_expected.txt` e executa o programa até o store de conclusão (a linha `COMPLETE` do arquivo). Depois compara os registradores e a memória com o esperado e imprime `PASS` ou uma linha `MISMATCH` para cada diferença.
 
-### Running Random Tests
+| Teste | O que verifica | Ciclos |
+|---|---|---|
+| `L_S_type` | Loads e stores do RV32I: byte, meia palavra e palavra, com e sem sinal | 18 |
+| `mul_test` | `6 * 7 = 42` | 4 |
+| `max_test` | `max(-5, 9) = 9`, comparação com sinal | 4 |
+| `mac_test` | `3 + 5 * 7 = 38` | 5 |
+| `sign_test` | Negativo, zero, positivo, `0x80000000`, `0x7FFFFFFF`, `0x40000000`, `rs1 = x0` e `rd = rs1` | 17 |
 
-Run one generated test:
+## Limitações
 
-```shell
-python tb\random_regression.py --seed 1000 --count 1 --length 8
-```
+- O processador é só monociclo. Não há versão multiciclo nem com pipeline.
+- A `DataMemory` usa o endereço direto como índice de palavra (64 palavras). Por isso os testes fazem stores em `1(x0)`, `2(x0)` etc.
+- Load e store de byte e de meia palavra usam sempre a parte baixa da palavra. O store grava a palavra inteira, completada com zeros, porque a `DataMemory` não usa o strobe.
 
-Options:
+## Licença e créditos
 
-- `--seed`: first deterministic seed; the runner increments it for each generated test.
-- `--count`: number of generated tests; default is `4`.
-- `--length`: number of random ALU instructions in the generated body; default is `8`.
-- `--vlib`, `--vlog`, `--vsim`: optional ModelSim tool names or paths.
-
-Reproduce a reported failure such as `seed=12345` with:
-
-```shell
-python tb\random_regression.py --seed 12345 --count 1 --length 8
-```
-
-The same generator version, seed, and generation parameters produce the same machine-code program. Reproducibility is relative to the current generator version; a future generator change may change an existing seed's output.
-
-Run the validated bounded campaign:
-
-```shell
-python tb\random_regression.py --seed 1000 --count 100 --length 8
-```
-
-This covers seeds `1000` through `1099`. It is not exhaustive verification.
-
-### Generated Instruction Scope
-
-The generator emits legal encodings from the instruction classes already supported by the current model and RTL:
-
-R-type:
-
-- `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`
-- `XOR`, `SRL`, `SRA`, `OR`, `AND`
-
-I-type ALU:
-
-- `ADDI`, `SLTI`, `SLTIU`, `XORI`, `ORI`, `ANDI`
-- `SLLI`, `SRLI`, `SRAI`
-
-Upper immediate:
-
-- `LUI`, `AUIPC`
-
-Memory:
-
-- `LW`, `SW`
-
-Branches:
-
-- `BEQ`, `BNE`
-
-Jumps:
-
-- `JAL`, `JALR`
-
-The random body uses R-type and I-type ALU instructions. The fixed skeleton adds upper-immediate, memory, branch, and jump operations. The generator does not generate `LB`, `LH`, `LBU`, `LHU`, `SB`, or `SH`.
-
-### Control Flow and Safety Constraints
-
-V7 does not generate arbitrary unconstrained control flow. Branch, JAL, and JALR targets are forward and fixed within the generated image, so generated execution is loop-free and terminates through the configured architectural instruction count. JALR targets are even and remain inside the generated program.
-
-Memory operations use direct array indices supported by the repository memory model; they do not assume standard byte-addressed memory. Register source selection is restricted to registers initialized before the instruction on the actual execution path. `x0` is always safe. This prevents a taken branch or jump from flushing the only write to a register that later code reads.
-
-Static generated program length and dynamic architectural instruction count are different. Taken control flow can skip words, so the runner derives the dynamic count from reference-model execution and uses that count for RTL retirement termination.
-
-### Differential Checking
-
-For instruction-count tests, [tb/differential_check.py](tb/differential_check.py) compares each RTL retirement event with the corresponding reference-model event:
-
-- retirement index;
-- PC;
-- instruction encoding;
-- register-write indication;
-- destination register;
-- destination value when a register write is present.
-
-The checker fails at the first retirement mismatch and retains final register and memory comparison as a secondary safety net. Unknown RTL register values are not treated as zero; untouched uninitialized registers are reported using the existing policy.
-
-The current retirement interface does not expose store address, data, or strobe metadata, so stores are checked through final memory state. `PC_IF` is diagnostic only and is not compared directly with the reference model's architectural PC.
-
-### SRA Discovery Example
-
-The initial V7 campaign generated negative-operand SRA cases that exposed an RTL signed-shift defect:
-
-```text
-random program
-  -> negative SRA operand
-  -> retirement mismatch
-  -> root-cause investigation
-  -> RTL correction
-  -> permanent sra_test regression
-  -> mutation acceptance test
-```
-
-This is an example of a discovered defect, not a guarantee that randomized testing finds all defects.
-
-### Developer Workflow
-
-1. Run the directed regression.
-2. Run one random seed while developing.
-3. Save the seed if a failure occurs.
-4. Reproduce the seed with the same `--length` and generator version.
-5. Inspect the first retirement mismatch.
-6. Classify the cause as RTL, reference model, generator, or harness behavior.
-7. Fix the appropriate component.
-8. Add a permanent directed regression when the failure represents a meaningful RTL defect.
-9. Rerun the directed regression.
-10. Rerun the bounded random campaign.
-
-### Verification Limitations
-
-V7 does not provide formal coverage, RISC-V compliance certification, or exhaustive RV32I verification. Known limitations include:
-
-- control flow is constrained and not arbitrary;
-- generated memory follows the repository's direct-indexed 32-bit memory model;
-- byte and halfword memory behavior retains the existing simplified semantics;
-- store address/data/strobe are not compared as retirement metadata;
-- untouched RTL registers remain uninitialized;
-- random category counts are not formal functional coverage;
-- internal pipeline-only errors with identical architectural behavior may remain invisible;
-- generated instruction counts do not cover every possible operand or dependency pattern;
-- external ISS, UVM, cocotb, compliance suites, and CI are not part of V7.
-
-V7 is a constrained, deterministic random-program layer on top of the independent reference model, retirement comparison, final-state checking, and directed regression.
-
-## License
-
-This project is licensed under the GNU General Public License version 3 (GPLv3) - see the [LICENSE](LICENSE) file for the complete license text.
-
-## Acknowledgments
-
-The RISC-V community for their open and collaborative approach to instruction set architecture design.
-
-## Contact
-
-If you have any questions, suggestions, or issues, please feel free to open an issue in this repository or contact us at [harieshanbalagan@outlook.com](mailto:harieshanbalagan@outlook.com).
-
-Happy coding!
-00102823
-03e05103
-002017a3
-03e01183
-00301723
-03d04203
-004006a3
-03d00283
-00500623
-03c05303
-006015a3
-03c01383
-00701523
-03b04403
-008004a3
-03b00483
-00900423
+GNU GPL v3, ver [LICENSE](LICENSE). Processador base de [Hariesh Anbalagan](https://github.com/HarieshAnbalagan/RV32I). Enunciado da Profa. Monica Pereira.
