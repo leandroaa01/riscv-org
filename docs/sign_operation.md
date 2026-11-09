@@ -167,6 +167,3 @@ A ULA usa `$signed(alu_port_a_i) < 0` e `alu_port_a_i == 0`, na mesma ordem da d
 - **Término:** o teste termina no store de `SIGN(9)` (endereço 2, valor 1), assim como MAX e MAC terminam no resultado da própria operação. Por isso, se o caso positivo quebrar, o testbench mostra apenas `timeout`, sem linhas `MISMATCH`.
 - **Teste padrão:** `InstructionMemory.sv` e `tb/top.sv` passaram a carregar o `sign_test`, como foi feito em cada instrução anterior. Para rodar outro teste, troque o nome nesses dois arquivos.
 - **Simulador:** o teste foi rodado no Icarus Verilog 12, numa cópia do projeto com um cast de enum na linha do SRA/SRL da `CoreControlUnit`, porque o Icarus rejeita essa linha e o ModelSim aceita. A validação oficial continua sendo no ModelSim.
-
-### 8. Fora do escopo
-A etapa 7 do roteiro (área, frequência e consumo) não foi feita, assim como nas instruções anteriores.
