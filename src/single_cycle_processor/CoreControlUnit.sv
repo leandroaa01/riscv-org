@@ -22,6 +22,7 @@ module CoreControlUnit #(parameter XLEN = 32)
     output load_store_type_e        load_store_type_o,
     output logic                    data_memory_write_enable_o,
     output write_data_select_e      reg_write_data_sel_o,
+    output logic                    accelerator_load_enable_o,
     input logic [6:0]               op_code_i,
     input logic [2:0]               funct3_i,
     input logic                     funct7_bit5_i,
@@ -39,9 +40,11 @@ module CoreControlUnit #(parameter XLEN = 32)
     localparam OP_U_LUI_TYPE    = 7'b0110111;
     localparam OP_U_AUIPC_TYPE  = 7'b0010111;
     localparam OP_J_TYPE        = 7'b1101111;
+    localparam OP_CUSTOM_0      = 7'b0001011;
 
     always_comb
     begin
+        accelerator_load_enable_o = 1'b0;
 
         unique case(op_code_i)
             OP_R_TYPE:
@@ -161,6 +164,29 @@ module CoreControlUnit #(parameter XLEN = 32)
 
                 load_store_type_o = LS_N_A;
                 data_memory_write_enable_o = 1'b0;
+            end
+            OP_CUSTOM_0:
+            begin
+                pc_mux_sel_o = 1'b0;
+                reg_write_enable_o = 1'b0;
+                imm_select_o = IMM_UNKNOWN_TYPE;
+                execute_port_a_sel_o = 1'b1;
+                execute_port_b_sel_o = 1'b1;
+                alu_op_sel_o = OP_UNKNOWN;
+                comp_op_sel_o = OP_BUNKNOWN;
+                load_store_type_o = LS_N_A;
+                data_memory_write_enable_o = 1'b0;
+                reg_write_data_sel_o = RD_MUX_N_A;
+
+                unique case(funct3_i)
+                    3'b000: accelerator_load_enable_o = 1'b1;
+                    3'b001:
+                    begin
+                        reg_write_enable_o = 1'b1;
+                        reg_write_data_sel_o = RD_MUX_ACCEL;
+                    end
+                    default: begin end
+                endcase
             end
             OP_B_TYPE:
             begin
