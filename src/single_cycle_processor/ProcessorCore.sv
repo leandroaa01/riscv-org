@@ -69,9 +69,11 @@ module ProcessorCore
     alu_select_e alu_op_sel;
     comp_select_e comp_op_sel;
     logic data_memory_write_enable;
+    logic accelerator_load_enable;
     write_data_select_e reg_write_data_sel;
 
     logic [31:0]reg_data;
+    logic signed [31:0]accelerator_result;
 
     assign pc_next = PC + 32'd4;
     assign pc_update = pc_mux_sel ? alu_output : pc_next;
@@ -124,6 +126,7 @@ module ProcessorCore
         .load_store_type_o                (load_store_type),
         .data_memory_write_enable_o       (data_memory_write_enable),
         .reg_write_data_sel_o             (reg_write_data_sel),
+        .accelerator_load_enable_o        (accelerator_load_enable),
         .op_code_i                        (instruction[6:0]),
         .funct3_i                         (instruction[14:12]),
         .funct7_bit5_i                    (instruction[30]),
@@ -143,6 +146,16 @@ module ProcessorCore
         .alu_port_b_i   (alu_port_b),
         .alu_port_c_i   (alu_port_c),
         .alu_op_sel_i   (alu_op_sel)
+    );
+
+    NeuralAccelerator neural_accelerator
+    (
+        .clk_i          (clk_i),
+        .reset_i        (reset_i),
+        .load_enable_i  (accelerator_load_enable),
+        .operand_a_i    (reg_source_1[7:0]),
+        .operand_b_i    (reg_source_2[7:0]),
+        .y              (accelerator_result)
     );
 
     ComparatorUnit #(.XLEN(XLEN)) bcu
@@ -172,10 +185,11 @@ module ProcessorCore
     begin
         unique case(reg_write_data_sel)
             RD_MUX_DMEM:    reg_data = dmem_data;
-             RD_MUX_ALU:    reg_data = alu_output;
-             RD_MUX_BCU:    reg_data = {31'b0, branch_enable};
-             RD_MUX_IMM:    reg_data = immediate;
+            RD_MUX_ALU:     reg_data = alu_output;
+            RD_MUX_BCU:     reg_data = {31'b0, branch_enable};
+            RD_MUX_IMM:     reg_data = immediate;
             RD_MUX_PC_N:    reg_data = pc_next;
+            RD_MUX_ACCEL:   reg_data = accelerator_result;
                 default:    reg_data = {XLEN{1'bz}};
         endcase
     end
