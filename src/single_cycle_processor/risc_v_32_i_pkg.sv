@@ -62,6 +62,7 @@ typedef enum logic [RD_MUX_SEL_LEN-1:0] {
     RD_MUX_BCU,
     RD_MUX_IMM,
     RD_MUX_PC_N,
+    RD_MUX_ACCEL,
     RD_MUX_N_A
 }write_data_select_e;
 
