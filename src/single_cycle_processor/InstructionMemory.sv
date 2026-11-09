@@ -19,7 +19,7 @@ module InstructionMemory
 
     initial
     begin
-        $readmemh("sign_test.txt",instruction); // use the right txt file for testing
+        $readmemh("neural_alu_test.txt",instruction); // use the right txt file for testing
     end
 
     always_comb
